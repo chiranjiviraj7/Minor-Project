@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Virtual Tour UI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script type=text/javascript src="custom.js"></script>
+</head>
+
+<body>
+  <div class="mask1">
+    <img src="350.png" class="logo">
+  </div>
+  <video autoplay loop muted plays-inline class="back_video">
+    <source src="3602.mp4" type="video/mp4">
+  </video>
+  <div class="content">
+    <h1>360</h1>
+    <p id="heh">Let's click on</p>
+    <p id="move-to-hotspot">A Virtual Tour</p>
+  </div>
+
+
+  <div class="feedback">Feedback</div>
+  <div class="feedback_box">
+    <div class="in_box">
+      <h1 class="font-effect-shadow-multiple">__________________||||||____</h1>
+    </div>
+    <form id="feedback_form">
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" autofocus><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname"><br>
+      <label for="add">Address:</label><br>
+      <textarea name="message" rows="8" cols="28"></textarea><br>
+      <label for="wrong">Did you find any wrong location in tour</label><br>
+      <input type="radio" id="yes" name="fav_language" value="HTML">
+      <label for="html">Yes</label><br>
+      <input type="radio" id="no" name="fav_language" value="CSS">
+      <label for="css">No</label><br>
+      <label for="add">Provide valuable feedback:</label><br>
+      <textarea name="message" rows="10" cols="30"></textarea><br>
+
+      <input type="submit" value="Submit">
+      <input type="reset">
+    </form>
+  </div>
+
+
+  <div class="about">About</div>
+  <div class="about_box">
+    <div class="in_box">
+      <h1 class="font-effect-shadow-multiple">__________________||||||____</h1>
+    </div>
+    <p class="text_about">A project on virtual campus tour by our team i.e. Alok, Anurag, Chiranjivi and Manav.
+      A virtual tour is a simulation of an actual location or place created using digital technology. It allows users to
+      experience a location or space without physically being there.
+      So let's dive into it.
+    </p>
+
+  </div>
+
+
+
+  <p id="time"></p>
+
+  <script>
+
+    // Add any necessary JavaScript code here to control the virtual tour
+    const moveToHotspotBtn = document.getElementById('move-to-hotspot');
+    moveToHotspotBtn.addEventListener('mouseover', function () {
+
+      moveToHotspotBtn.style.cursor = 'pointer';
+    });
+    moveToHotspotBtn.addEventListener('click', function () {
+      window.open('http://localhost:8000', '_blank');
+
+
+    });
+    function Time() {
+      time = new Date();
+      document.getElementById('time').innerHTML = time;
+    }
+    setInterval(Time, 1000);
+  </script>
+</body>
+
+</html>

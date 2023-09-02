@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <a href="/" class="dash">Home</a>
+    <h1>Feedback</h1>
+    <table>
+        <tr>
+          <th>Name  </th>
+          <th>Email  </th>
+          <th>Message</th>
+        </tr>
+        <% feedback.forEach(item => { %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.email %></td>
+          <td><%= item.message %></td>
+        </tr>
+        <% }); %>
+      </table>
+</body>
+</html>

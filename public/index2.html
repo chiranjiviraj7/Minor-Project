@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>360&deg; Image</title>
+  <meta name="description" content="360&deg; Image - A-Frame">
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+
+  <script>
+    AFRAME.registerComponent('hotspot-listener', {
+      init: function () {
+        var el = this.el;
+        el.addEventListener('click', function () {
+          console.log('Hotspot clicked!');
+          var scene = document.querySelector('a-scene');
+          var camera = document.querySelector('[camera]');
+          scene.setAttribute('animation', 'property: opacity; to: 0; dur: 850; easing: linear');
+          camera.setAttribute('animation', 'property: position; to: 140 250 -700; dur: 1000; easing: linear');
+          setTimeout(function () {
+            window.location.href = 'index1.html';
+          }, 850);
+        });
+      }
+    });
+
+
+    AFRAME.registerComponent('cursor-listener', {
+      init: function () {
+        let hotspot = document.querySelector('#hotspot');
+        let text = document.querySelector('#hotspot a-text');
+        let hot = document.querySelector('#hot');
+        hotspot.addEventListener('mouseenter', function () {
+
+          text.setAttribute('visible', true);
+          hot.setAttribute('width', 0.27);
+          hot.setAttribute('height', 0.27);
+
+        });
+        hotspot.addEventListener('mouseleave', function () {
+          text.setAttribute('visible', false);
+          hot.setAttribute('width', 0.23);
+          hot.setAttribute('height', 0.23);
+        });
+        hotspot.addEventListener('click', function () {
+          console.log('Hotspot clicked!');
+
+        });
+      }
+    });
+
+  </script>
+</head>
+
+<body>
+  <a-scene>
+    <a-sky src="forest4.jpg" rotation="0 -130 0"></a-sky>
+    <a-text font="kelsonsans" color="black" value="Campus 6" width="6" position="1.95 2.10 -2.5"
+      rotation="1 -4 0"></a-text>
+
+    <a-entity id="hotspot" position="0.50 1.19 -2.5" width="70" rotation="0 0 0">
+      <a-image id="hot" src="pin2.png" width="0.23" height="0.23" hotspot-listener></a-image>
+      <a-entity cursor-listener>
+        <a-text class="di" color="black" value="Way to Aerial" visible="false" position="0 -0.2 0" align="center"
+          width="4" font="exo2bold"></a-text>
+
+      </a-entity>
+    </a-entity>
+    <a-camera cursor="rayOrigin: mouse"></a-camera>
+  </a-scene>
+</body>
+
+</html>

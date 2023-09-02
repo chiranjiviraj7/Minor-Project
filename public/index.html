@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Virtual Tour UI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script type=text/javascript src="custom.js"></script>
+</head>
+
+<body>
+  <div class="mask1">
+    <img src="350.png" class="logo">
+  </div>
+  <video autoplay loop muted plays-inline class="back_video">
+    <source
+      src="3602.mp4"
+      type="video/mp4">
+  </video>
+  <div class="content">
+    <h1>360</h1>
+    <p id="heh">Let's click on</p>
+    <p id="move-to-hotspot">A Virtual Tour</p>
+  </div>
+
+  <div class="admin">
+    <a style="text-decoration:none" href="/admin_login" class="adm">Admin</a>
+  </div>
+
+  <div class="feedback">Feedback</div>
+  <div class="feedback_box">
+    <div class="in_box">
+      <h1 class="font-effect-shadow-multiple"></h1>
+    </div>
+
+
+    <form method="POST" action="/feedback-user" id="feedback_form" class="feedback_form">
+      <div class="field-group">
+        <label for="name">Name</label>
+        <input type="text" class="name" name="name" placeholder="Name">
+        <img src="./images/icon-error.svg" class="error-icon" alt="icon-error">
+        <p class="error-text">Name cannot be empty</p>
+      </div>
+      <div class="field-group">
+        <label for="email">Email</label>
+        <input type="email" class="email" name="email" placeholder="Email">
+        <img src="./images/icon-error.svg" class="error-icon" alt="icon-error">
+        <p class="error-text">Email cannot be empty</p>
+      </div>
+      <div class="field-group"><label for="message">Provide valuable feedback:</label>
+        <input type="text" class="message" name="message" placeholder="Provide valuable Feedback" rows="8" cols="28">
+      </div>
+
+
+      <button type="submit" class="feed_submit">SUBMIT</button>
+    </form>
+  </div>
+
+  <div class="about">About</div>
+  <div class="about_box">
+    <div class="in_box">
+      <h1 class="font-effect-shadow-multiple"></h1>
+    </div>
+    <p class="text_about">A project on virtual campus tour by our team i.e. Alok, Anurag, Chiranjivi and Manav.
+      A virtual tour is a simulation of an actual location or place created using digital technology. It allows users to
+      experience a location or space without physically being there.
+      So let's dive into it.
+    </p>
+  </div>
+  <p id="time"></p>
+  <script>
+    const moveToHotspotBtn = document.getElementById('move-to-hotspot');
+    moveToHotspotBtn.addEventListener('mouseover', function () {
+
+      moveToHotspotBtn.style.cursor = 'pointer';
+    });
+    moveToHotspotBtn.addEventListener('click', function () {
+      window.open('index1', '_blank');
+    });
+
+
+
+    function Time() {
+      time = new Date();
+      document.getElementById('time').innerHTML = time;
+    }
+    setInterval(Time, 1000);
+  </script>
+  <script src="feed.js"></script>
+</body>
+
+</html>
